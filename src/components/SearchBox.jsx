@@ -21,10 +21,8 @@ const SearchBox = () => {
   return (
 
     <>
-      {/* <h1 className="title">Rick and Morty App</h1> */}
-      <div className="effect__title">
-        
-      </div>
+      <h1 className="title">Rick and Morty App</h1>
+     
       <input
         type="text"
         value={search}

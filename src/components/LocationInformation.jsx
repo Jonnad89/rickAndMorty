@@ -6,16 +6,16 @@ const LocationInformation = ({ name, dimension, type, population }) => {
       <h2 className="text-center">{name}</h2>
       <div className="row">
         <div className="col-sm-4 text-center">
-          <b>Type: </b>
-          {type}
+          <b className="container__location__title">Type: </b>
+          <b>{type}</b>
         </div>
         <div className="col-sm-4 text-center">
-          <b>Dimension: </b>
-          {dimension}
+          <b className="container__location__title">Dimension: </b>
+          <b>{dimension}</b>
         </div>
         <div className="col-sm-4 text-center">
-          <b>Population: </b>
-          {population}
+          <b className="container__location__title">Population: </b>
+          <b>{population}</b>
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ h3,h1 {
   text-align: center;
   font-family: "get_schwifty", sans-serif;
   font-size: 3rem;
-  color: #00ADC5;
+  color: #193175;
 }
 
 h1:hover{
@@ -83,6 +83,19 @@ input {
 
 p {
   margin: 0 0 8px 0;
+  color:#fff;
+}
+
+.container__location__title{
+  color: #fff;
+}
+
+.col-sm-4{
+  color: #193175;
+}
+
+h2{
+  color: #fff;
 }
 
 .information__card {
@@ -229,15 +242,15 @@ button:hover {
   width: 50px;
   height: 50px;
   margin: 2px 5px;
-  background: #140f0f;
+  background: #0e6820;
   font-size: 1.2rem;
   border-radius: 50%;
 }
 
 .pagination button:hover:not(.actualPage) {
-  background: #275433;
+  background: #083815;
 }
 
 button.actualPage {
-  background: #858a5f;
+  background: #3ab91a;
 }

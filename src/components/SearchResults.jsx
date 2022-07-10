@@ -12,14 +12,7 @@ const SearchResults = ({ url, handleSearch }) => {
     promise.catch(() => {});
   }, [url]);
 
-  // const listResult = results.map((value) => (
-  //   <button
-  //     onClick={() => handleSearch(value.url)}
-  //     key={value.url.substring(50)}
-  //   >
-  //     {value.name}
-  //   </button>
-  // ));
+ 
   
   const listResult = results.map((value) => (
     <button
