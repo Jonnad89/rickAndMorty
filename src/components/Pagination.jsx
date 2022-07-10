@@ -1,20 +1,29 @@
-import React from 'react';
+import React from "react";
 
-const Pagination = ({ residentPerPage, totalResidents, pageChange, actualResidentPage }) => {
+const Pagination = ({
+  residentPerPage,
+  totalResidents,
+  pageChange,
+  actualPage,
+}) => {
+  const numberPage = [];
 
-  const numberPage = []
   for (let i = 1; i <= Math.ceil(totalResidents / residentPerPage); i++) {
-    numberPage.push(i)
+    numberPage.push(i);
   }
-  return (
-    <div>
-      <div className='pagination'>
-        {numberPage.map((number) =>
-        (<button className={number === actualResidentPage ? "actualResidentPage" : ""} 
-                 onClick={() => pageChange(number)}
-                 key={number} > {number} 
 
-        </button>))}
+  return (
+    <div className="text-center">
+      <div className="pagination">
+        {numberPage.map((number) => (
+          <button
+            key={number}
+            onClick={() => pageChange(number)}
+            className={number === actualPage ? "actualPage" : ""}
+          >
+            {number}
+          </button>
+        ))}
       </div>
     </div>
   );

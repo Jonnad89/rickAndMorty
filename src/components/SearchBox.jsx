@@ -1,37 +1,46 @@
 import { useState } from "react";
 import LocationContainer from "./LocationContainer";
-import ResidentCard from "./ResidentCard";
+
 import ResidentContainer from "./ResidentContainer";
 import SearchResults from "./SearchResults";
 
-
-const query = Math.floor(Math.random() * 126) + 1
+const query = Math.floor(Math.random() * 126) + 1;
 
 const SearchBox = () => {
+  const [url, setUrl] = useState(
+    `https://rickandmortyapi.com/api/location/${query}`
+  );
 
-  const [url, setUrl] = useState(`https://rickandmortyapi.com/api/location/${query}`)
+  const [search, setSearch] = useState("");
 
-  const [search, setSearch] = useState('')
+  const handleSearch = (url) => {
+    setSearch("");
+    setUrl(url);
+  };
 
-  const handleSearch = ((url) => {
-    setSearch('')
-    setUrl(url)
-  })
-  console.log(url);
   return (
-    <div className="search__information">
-      <input type="text"
-        value={search}
-        placeholder="Type a Location"
-        onChange={(e) => setSearch(e.target.value)} />
 
-      {search !== '' &&  (<SearchResults url={`https://rickandmortyapi.com/api/location/${search}`}
-      handleSearch={handleSearch} />)}
+    <>
+      {/* <h1 className="title">Rick and Morty App</h1> */}
+      <div className="effect__title">
+        
+      </div>
+      <input
+        type="text"
+        value={search}
+        placeholder="Choose a location"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {search !== "" && (
+        <SearchResults
+          url={`https://rickandmortyapi.com/api/location/?name=${search}`}
+          handleSearch={handleSearch}
+        />
+      )}
       <LocationContainer url={url} />
       <ResidentContainer url={url} />
-      
-
-    </div>
+    </>
   );
 };
 

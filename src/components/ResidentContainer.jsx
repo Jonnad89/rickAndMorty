@@ -1,11 +1,11 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import axios from 'axios'
-import ResidentCard from './ResidentCard';
-import Pagination from './Pagination';
-const ResidentContainer = ({ url }) => {
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+import ResidentCard from "./ResidentCard";
+import Pagination from "./Pagination";
 
+const ResidentContainer = ({ url }) => {
   const [residents, setResidents] = useState([]);
 
   const [actualPage, setActualPage] = useState(1);
@@ -13,41 +13,41 @@ const ResidentContainer = ({ url }) => {
   const residentPerPage = 10;
 
   useEffect(() => {
-    const promise = axios(url)
-    promise.then(res => {
+    const promise = axios(url);
+    promise.then((res) => {
       setResidents(res.data.residents);
-      setActualPage(1)
-    })
-  }, [url])
-
-
+      setActualPage(1);
+    });
+  }, [url]);
+  console.log(residents);
   /*Página actual*/
 
-  const lastResidentIndex = actualPage * 10;
+  const lastResidentIndex = actualPage * residentPerPage;
   const firstResidentIndex = lastResidentIndex - residentPerPage;
-  const actualResidentPage = residents.slice(firstResidentIndex, lastResidentIndex)
+  const actualResidentPage = residents.slice(
+    firstResidentIndex,
+    lastResidentIndex
+  );
 
   /* Cambio de página*/
 
-  const pageChange = ((numberOfPage) => setActualPage(numberOfPage))
-
+  const pageChange = (numberOfPage) => setActualPage(numberOfPage);
 
   return (
     <>
-      <div>
-        <h2>Residents</h2>
-        {actualResidentPage.map((url) =>
-        (<ResidentCard key={url.substring(42)}
-          url={url} />))}
+      <h3>Residents</h3>
+      <div className="row">
+        {actualResidentPage.map((url) => (
+          <ResidentCard key={url.substring(42)} url={url} />
+        ))}
       </div>
-      <div>
-        <Pagination
-          residentPerPage={residentPerPage}
-          totalResident={residents.length}
-          pageChange={pageChange}
-          actualResidentPage={actualResidentPage}
-        />
-      </div>
+
+      <Pagination
+        residentPerPage={residentPerPage}
+        totalResidents={residents.length}
+        pageChange={pageChange}
+        actualPage={actualPage}
+      />
     </>
   );
 };

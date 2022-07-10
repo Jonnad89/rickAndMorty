@@ -1,22 +1,23 @@
-import React from 'react';
+import React from "react";
 
 const LocationInformation = ({ name, dimension, type, population }) => {
   return (
     <div>
-      <ul>
-        <div className='location__information__name'>
-          <li> <b> Name: </b>
-            {name}</li>
+      <h2 className="text-center">{name}</h2>
+      <div className="row">
+        <div className="col-sm-4 text-center">
+          <b>Type: </b>
+          {type}
         </div>
-        <div className='location__information__list'>
-          <li> <b> Type: </b>
-            {type}</li>
-          <li><b> Dimesion: </b>
-            {dimension}</li>
-          <li> <b> Population: </b>
-            {population}</li>
+        <div className="col-sm-4 text-center">
+          <b>Dimension: </b>
+          {dimension}
         </div>
-      </ul>
+        <div className="col-sm-4 text-center">
+          <b>Population: </b>
+          {population}
+        </div>
+      </div>
     </div>
   );
 };
